@@ -646,12 +646,6 @@ if(round===3){
       for(var v=1;v<=7;v++) satB+='<td><input type="radio" name="sat'+(idx+1)+'" value="'+v+'"></td>';
       satB+='</tr>';
     });
-  } else {
-    SAT_ITEMS.forEach(function(item,idx){
-      satB+='<tr><td>'+item+'</td>';
-      for(var v=1;v<=7;v++) satB+='<td><input type="radio" name="sat'+(idx+1)+'" value="'+v+'"></td>';
-      satB+='</tr>';
-    });
   }
 
   satB+='</tbody>';

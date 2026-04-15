@@ -911,6 +911,11 @@ function validateLikertRound(prefix, count){
     }
     // 统一保存数据，注意力检测题保存到 r3_sat4
     expData['r'+r+'_'+name] = checked.value;
+    // 第三轮注意力检测题：第4题同时存到 r3_sat7_attention
+    if(r===3 && prefix==='sat' && i===4){
+      expData['r3_sat7_attention'] = checked.value;
+}
+
   }
 
   if(prefix==='anx') goToMeasureStep('presence');

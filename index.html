@@ -270,21 +270,21 @@ input[type="number"],input[type="tel"]{width:100%;max-width:280px;padding:8px 12
 <!-- 人口学信息 -->
 <div class="card hidden" id="sec-demo">
   <h2>基本信息</h2>
-  <div class="demo-group">
+  <div class="demo-">
     <label>1. 您的性别</label>
-    <div class="radio-group">
+    <div class="radio-">
       <label><input type="radio" name="gender" value="male"> 男</label>
       <label><input type="radio" name="gender" value="female"> 女</label>
       <label><input type="radio" name="gender" value="other"> 其他</label>
     </div>
   </div>
-  <div class="demo-group">
+  <div class="demo-">
     <label>2. 您的年龄</label>
     <input type="number" id="age" min="16" max="60" placeholder="请输入">
   </div>
-  <div class="demo-group">
+  <div class="demo-">
     <label>3. 您使用生成式AI（如ChatGPT、豆包、DeepSeek等）的频率</label>
-    <div class="radio-group">
+    <div class="radio-">
       <label><input type="radio" name="ai_freq" value="1"> 从不使用</label>
       <label><input type="radio" name="ai_freq" value="2"> 偶尔使用</label>
       <label><input type="radio" name="ai_freq" value="3"> 有时使用</label>
@@ -301,7 +301,7 @@ input[type="number"],input[type="tel"]{width:100%;max-width:280px;padding:8px 12
 <div class="card hidden" id="sec-phone">
   <h2>联系方式</h2>
   <p style="color:#666;margin-bottom:16px;font-size:14px">如您需要获取实验报酬，请留下您的手机号码。此信息仅用于联系发放报酬，研究结束后将删除。</p>
-  <div class="demo-group">
+  <div class="demo-">
     <label>手机号码（选填）</label>
     <input type="tel" id="phone" placeholder="请输入手机号" maxlength="11">
   </div>
@@ -330,8 +330,8 @@ input[type="number"],input[type="tel"]{width:100%;max-width:280px;padding:8px 12
 <script>
 // ==================== 配置 ====================
 var WAIT_MS = 8000;
-var GROUPS = ['spinner','thinking','icecream'];
-var GROUP_LABELS = {spinner:'Spinner组',thinking:'思考Emoji组',icecream:'冰淇淋Emoji组'};
+var S = ['spinner','thinking','icecream'];
+var _LABELS = {spinner:'Spinner组',thinking:'思考Emoji组',icecream:'冰淇淋Emoji组'};
 
 // 三轮场景
 var SCENARIOS = [
@@ -488,7 +488,7 @@ var ATTENTION_LABELS = ['完全不同意','','','中立','','','完全同意'];
 
 // ==================== 全局数据 ====================
 var currentRound = 0;
-var group = '';
+var  = '';
 var pageEnterTime = 0;
 var sectionTimestamps = {};
 var expData = {
@@ -530,7 +530,7 @@ var expData = {
   var rnd = Math.random().toString(36).substring(2,7);
   expData.pid = 'P_'+ts+'_'+rnd;
   expData.ts_start = new Date().toISOString();
-  group = GROUPS[Math.floor(Math.random()*GROUPS.length)];
+  group = 'icecream';
   expData.group = group;
   console.log('被试ID:',expData.pid,'| 分组:',GROUP_LABELS[group]);
 

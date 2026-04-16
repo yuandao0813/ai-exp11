@@ -915,7 +915,13 @@ function validateLikertRound(prefix, count){
   if(prefix==='anx') goToMeasureStep('presence');
   else if(prefix==='sp') goToMeasureStep('prompt');
   else if(prefix==='pa') goToMeasureStep('satisfaction');
-  else if(prefix==='sat') finishRound();
+ else if(prefix==='sat') {
+  // 第三轮时，将注意力检测题的值从 r3_sat4 复制到 r3_sat7_attention
+  if(currentRound === 3) {
+    expData['r3_sat7_attention'] = expData['r3_sat4'];
+  }
+  finishRound();
+}
 }
 
 // ==================== 完成一轮 ====================

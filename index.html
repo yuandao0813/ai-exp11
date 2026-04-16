@@ -530,7 +530,7 @@ var expData = {
   var rnd = Math.random().toString(36).substring(2,7);
   expData.pid = 'P_'+ts+'_'+rnd;
   expData.ts_start = new Date().toISOString();
-  group = GROUPS[Math.floor(Math.random()*GROUPS.length)];
+  group = 'spinner';
   expData.group = group;
   console.log('被试ID:',expData.pid,'| 分组:',GROUP_LABELS[group]);
 
@@ -646,8 +646,7 @@ if(round===3){
       for(var v=1;v<=7;v++) satB+='<td><input type="radio" name="sat'+(idx+1)+'" value="'+v+'"></td>';
       satB+='</tr>';
     });
-  }
-
+  } 
   satB+='</tbody>';
   document.getElementById('satTable').innerHTML = satH+satB;
 }
@@ -911,11 +910,6 @@ function validateLikertRound(prefix, count){
     }
     // 统一保存数据，注意力检测题保存到 r3_sat4
     expData['r'+r+'_'+name] = checked.value;
-    // 第三轮注意力检测题：第4题同时存到 r3_sat7_attention
-    if(r===3 && prefix==='sat' && i===4){
-      expData['r3_sat7_attention'] = checked.value;
-}
-
   }
 
   if(prefix==='anx') goToMeasureStep('presence');
@@ -969,7 +963,7 @@ function finishExperiment(){
 // 修改 submitToServer 函数
 function submitToServer(data){
   // 替换为您的腾讯云函数HTTP触发器地址
-  var url = 'https://1422594727-ilw5glo3bt.ap-nanjing.tencentscf.com';
+  var url = 'https://1422594727-hbwnu2b795.ap-nanjing.tencentscf.com';
   fetch(url, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
